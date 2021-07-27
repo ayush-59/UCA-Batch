@@ -20,7 +20,7 @@ void generate_array(int *arr, int size, int mode){
   switch(mode){
     case RAND:
     for(i = 0; i < size; i++){
-      arr[i] = rand() % size + 1;
+      arr[i] = rand() % size;
     }
     break;
     case ASC:
