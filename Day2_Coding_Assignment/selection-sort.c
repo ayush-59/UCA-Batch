@@ -1,5 +1,5 @@
 /*
- * Problem: Bubble sort run time analysis
+ * Problem: Selection sort run time analysis
  * Ayush Singh 1910990059 26/07/21
  * Assignment_2 -> Day2_Coding_Assignment
 */
@@ -45,21 +45,17 @@ void swap(int *arr, int a, int b){
   arr[b] = temp;
 }
 
-void bubble_sort(int *arr, int size){
-  int i, j;
-  bool swapped;
+void selection_sort(int *arr, int size){
+  int i, j, min;
 
-  for(i = 0; i < size; i++){
-    swapped = false;
-    for(j = 0; j < size - 1 - i; j++){
-      //compare the adjacent elements
-      if(arr[j+1] < arr[j]){
-        swap(arr, j, j+1);
-        swapped = true;
-      }
+  for(i = 0; i < size - 1; i++){
+    min = i;
+    for(j = i+1; j < size; j++){
+      if(arr[j] < arr[min])
+        min = j;
     }
-    if(swapped == false)
-      break;
+    if(min != i)
+      swap(arr, i, min);
   }
 }
 
@@ -72,7 +68,7 @@ long long calc_time(int *arr, int size, int mode){
   gettimeofday(&current_time, NULL);
   long long start_time = current_time.tv_sec * 1000LL + current_time.tv_usec / 1000;
 
-  bubble_sort(arr, size);
+  selection_sort(arr, size);
 
   //get final Time
   gettimeofday(&current_time, NULL);
@@ -85,7 +81,7 @@ long long calc_time(int *arr, int size, int mode){
 int main(){
   int size, mode, init_arr_size = 8000, increment = 4000, limit = 36000;
 
-  printf("Time taken by Bubble Sort:\n");
+  printf("Time taken by Selection Sort:\n");
   for(size = init_arr_size; size <= limit; size += increment){
     int *arr = (int *)calloc(size, sizeof(int));
 

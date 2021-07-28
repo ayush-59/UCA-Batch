@@ -1,5 +1,5 @@
 /*
- * Problem: Bubble sort run time analysis
+ * Problem: Insertion sort run time analysis
  * Ayush Singh 1910990059 26/07/21
  * Assignment_2 -> Day2_Coding_Assignment
 */
@@ -45,21 +45,15 @@ void swap(int *arr, int a, int b){
   arr[b] = temp;
 }
 
-void bubble_sort(int *arr, int size){
-  int i, j;
-  bool swapped;
+void insertion_sort(int *arr, int size){
+  int i, j, val;
 
-  for(i = 0; i < size; i++){
-    swapped = false;
-    for(j = 0; j < size - 1 - i; j++){
-      //compare the adjacent elements
-      if(arr[j+1] < arr[j]){
-        swap(arr, j, j+1);
-        swapped = true;
-      }
+  for(i = 1; i < size ; i++){
+    val = arr[i];
+    for(j = i-1; j >= 0 && arr[j] > val; j--){
+      arr[j+1] = arr[j];
     }
-    if(swapped == false)
-      break;
+    arr[++j] = val;
   }
 }
 
@@ -72,7 +66,7 @@ long long calc_time(int *arr, int size, int mode){
   gettimeofday(&current_time, NULL);
   long long start_time = current_time.tv_sec * 1000LL + current_time.tv_usec / 1000;
 
-  bubble_sort(arr, size);
+  insertion_sort(arr, size);
 
   //get final Time
   gettimeofday(&current_time, NULL);
@@ -85,7 +79,7 @@ long long calc_time(int *arr, int size, int mode){
 int main(){
   int size, mode, init_arr_size = 8000, increment = 4000, limit = 36000;
 
-  printf("Time taken by Bubble Sort:\n");
+  printf("Time taken by Insertion Sort:\n");
   for(size = init_arr_size; size <= limit; size += increment){
     int *arr = (int *)calloc(size, sizeof(int));
 
