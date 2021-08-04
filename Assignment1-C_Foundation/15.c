@@ -81,7 +81,7 @@ double expr(){
 
   for(i = 0; i < n; i++){
     //scan elements from user
-    scanf(" %c ", &ch);
+    scanf(" %c", &ch);
 
     //if input value is digit then push it int stack
     if(isdigit(ch)){
