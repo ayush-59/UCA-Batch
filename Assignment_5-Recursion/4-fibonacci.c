@@ -9,22 +9,22 @@
 void fib(int n){
     int i;
     int arr[n+1];   //array to memorize the fibonacci series
-    arr[0] = 0;
-    arr[1] = 1;
+    arr[0] = 2;
+    arr[1] = 8;
 
-    //calculate ith element by adding prev 2 elements
-    for(i = 2; i <= 3 * n; i++){
-        arr[i] = arr[i-1] + arr[i-2];
+    //calculate ith element by using modified formula
+    for(i = 2; i < n; i++){
+        arr[i] = 4*arr[i-1] + arr[i-2];
     }
 
     //print the required elements
     printf("n = %d: ", n);
-    for(i = 3; i <= 3*n; i += 3)
+    for(i = 0; i < n; i++)
         printf("%d ", arr[i]);
 }
 
 int main(){
-    int n = 3;
+    int n = 5;
 
     fib(n);
 
