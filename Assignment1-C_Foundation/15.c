@@ -1,5 +1,5 @@
 /*
- * Problem-14: Write the program expr, which evaluates a reverse Polish
+ * Problem-15: Write the program expr, which evaluates a reverse Polish
    expression from the command line, where each operator or operand is a
    separate argument
  * Ayush Singh 1910990059 27/07/21
@@ -68,10 +68,10 @@ double eval(double a, double b, char ch){
     return b / a;
     break;
   }
+  return -1;
 }
 
 double expr(){
-  struct Stack *curr = Top;
   int i, n;
   double a, b, result;
   char ch;
