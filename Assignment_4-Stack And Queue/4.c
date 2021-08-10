@@ -1,3 +1,8 @@
+/*
+ * Problem-4: Largest Rectangle in Histogram
+ * Ayush Singh 1910990059 10/08/21
+ * Assignment_4 -> Stack and Queue
+*/
 
 int largestRectangleArea(int* heights, int heightsSize){
     int i, j, count, currLength, currArea, maxArea = (int)(-INFINITY);
