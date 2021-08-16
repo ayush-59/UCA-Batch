@@ -1,4 +1,10 @@
 /*
+ * Problem-1: Bit And
+ * Ayush Singh 1910990059 03/08/21
+ * Assignment_3 -> Bits and Bytes
+*/
+
+/*
 *  bitAnd - x & y using only ~ and |
 * Example bitAnd(6, 5) = 4
 * Legal ops:  ~ |
