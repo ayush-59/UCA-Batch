@@ -29,7 +29,7 @@ void mergeSort(int *arr, int start, int end, int *count){
         Left[i] = arr[start + i];
     }
     // putting right elements in Right[] Array
-    for(i = 0; i < n1; i++){
+    for(i = 0; i < n2; i++){
         Right[i] = arr[mid + 1 + i];
     }
 
