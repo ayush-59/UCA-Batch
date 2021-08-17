@@ -1,5 +1,5 @@
 /*
- * Problem-9: Decoding & Encoding
+ * Problem-9: Base64 Encoding
  * Ayush Singh 1910990059 17/08/21
  * Assignment_3 -> Bits and Bytes
 */
