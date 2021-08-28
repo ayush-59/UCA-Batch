@@ -78,26 +78,21 @@ int peekRear(Dequeue *dq){
 int* maxSlidingWindow(int* nums, int numsSize, int k, int* returnSize){
     *returnSize = numsSize-k+1;
     int *arr = (int*)calloc(*returnSize, sizeof(int));
-        Dequeue *dq= createDequeue();
-        for(int i=0;i<k;i++){
-            while(!isEmpty(dq) && nums[peekRear(dq)]<=nums[i]){
-                deleteRear(dq);
-            }
-            insertRear(dq, i);
-        }
-        int n=0;
-        for(int i=k;i<numsSize;i++){
-            arr[n]=nums[peekFront(dq)];
-            while(!isEmpty(dq) && peekFront(dq)<=i-k){
+    int n=0;
+    Dequeue *dq= createDequeue();
+    for(int i = 0; i < numsSize; i++){
+        while(!isEmpty(dq) && nums[peekRear(dq)]<=nums[i])
+            deleteRear(dq);
+
+        insertRear(dq, i);
+        if(i >= k-1){
+            if(i - peekFront(dq) >= k)
                 deleteFront(dq);
-            }
-             while(!isEmpty(dq) && nums[peekRear(dq)]<=nums[i]){
-                deleteRear(dq);
-            }
-            insertRear(dq, i);
-            n++;
+            arr[n++]=nums[peekFront(dq)];
         }
-        arr[n]=nums[peekFront(dq)];
-        return arr;
+
+    }
+
+    return arr;
 
 }
